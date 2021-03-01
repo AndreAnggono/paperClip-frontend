@@ -5,7 +5,7 @@ class MainPanel extends Component {
 	render() {
 		return (
 			<div className="main-panel-container">
-				<Chat user={this.props.user} handleLogout={this.props.handleLogout} fetchClips={this.props.fetchClips} />
+				<Chat history={this.props.history} user={this.props.user} handleLogout={this.props.handleLogout} fetchClips={this.props.fetchClips} />
 			</div>
 		);
 	}

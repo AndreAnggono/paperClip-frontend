@@ -8,17 +8,19 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			loggedInStatus: props.loggedInStatus,
 			user: {},
 		};
+	}
 
-		// const getUserData = () => {
-		// 	axios.get(LOGGED_IN, { withCredentials: true }).then((response) => {
-		// 		this.setState({
-		// 			user: response.data.user,
-		// 		});
-		// 	});
-		// };
-		// getUserData();
+	isLoggedIn() {
+		if (this.state.loggedInStatus === "NOT_LOGGED_IN") {
+			this.props.history.push("/login");
+		}
+	}
+
+	componentDidMount() {
+		this.isLoggedIn();
 	}
 
 	handleLogoutClick = () => {
@@ -31,10 +33,11 @@ class Home extends Component {
 	};
 
 	render() {
+		this.isLoggedIn();
 		return (
 			<>
 				<div className="platform-container">
-					<Platform login={this.props.login} user={this.props.user} handleLogout={this.props.handleLogout} />
+					<Platform history={this.props.history} login={this.props.login} user={this.props.user} handleLogout={this.props.handleLogout} />
 				</div>
 			</>
 		);
