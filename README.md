@@ -4,7 +4,7 @@
 
 Having fun in your chat? Friend them! Want to remember what they said? Clip it!
 
-Join in on the fun [here](https://acapaperclip.netlify.app)!
+Join in on the fun [here](https://acapaperclip.netlify.app/landing)!
 
 ## Features
 
