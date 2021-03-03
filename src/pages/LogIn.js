@@ -31,6 +31,7 @@ export class Login extends Component {
 	}
 
 	render() {
+		if (this.props.loggedInStatus === "LOGGED_IN") this.props.history.push("/");
 		return (
 			<div className="login-signup-container">
 				<LoginAuth handleSuccessfulAuth={this.handleSuccessfulAuth} />

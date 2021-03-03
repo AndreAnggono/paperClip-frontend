@@ -11,7 +11,7 @@ export class Profile extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			update: false,
+			update: false
 		};
 		this.showUpdate = this.showUpdate.bind(this);
 	}
@@ -21,6 +21,7 @@ export class Profile extends Component {
 	}
 
 	render() {
+		if (this.props.loggedInStatus === "NOT_LOGGED_IN") this.props.history.push("/");
 		return (
 			<div className="login-signup-container">
 				{this.state.update ? (

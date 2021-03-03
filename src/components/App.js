@@ -21,7 +21,7 @@ class App extends Component {
 		this.state = {
 			loggedInStatus: "NOT_LOGGED_IN",
 			user: {},
-			ready: "no",
+			ready: "no"
 		};
 
 		this.handleLogin = this.handleLogin.bind(this);
@@ -36,17 +36,17 @@ class App extends Component {
 					this.setState({
 						loggedInStatus: "LOGGED_IN",
 						user: response.data.user,
-						ready: "yes",
+						ready: "yes"
 					});
 				} else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN") {
 					this.setState({
 						loggedInStatus: "NOT_LOGGED_IN",
 						user: {},
-						ready: "yes",
+						ready: "yes"
 					});
 				}
 				this.setState({
-					ready: "yes",
+					ready: "yes"
 				});
 			})
 			.catch((error) => {
@@ -61,7 +61,7 @@ class App extends Component {
 	handleLogout() {
 		this.setState({
 			loggedInStatus: "NOT_LOGGED_IN",
-			user: {},
+			user: {}
 		});
 		return <Redirect to="/login" />;
 	}
@@ -70,7 +70,7 @@ class App extends Component {
 		this.setState({
 			loggedInStatus: "LOGGED_IN",
 			user: data.user,
-			loggedIn: true,
+			loggedIn: true
 		});
 	}
 
@@ -81,7 +81,8 @@ class App extends Component {
 				<NavBar login={this.state.loggedInStatus} user={this.state.user} />
 				<BrowserRouter>
 					<Switch>
-						<Route component={Landing} path="/landing" exact />
+						{/* <Route component={Landing} path="/landing" exact /> */}
+						<Route render={(props) => <Landing {...props} loggedInStatus={this.state.loggedInStatus} />} path="/landing" exact />
 						<div className="main-container">
 							<Route
 								render={(props) => (

@@ -12,10 +12,10 @@ export class Chat extends Component {
 			data: {
 				chat_id: 0,
 				user_id: 0,
-				text: "",
+				text: ""
 			},
 			messages: [],
-			set: false,
+			set: false
 		};
 
 		const fetchMessages = () => {
@@ -44,7 +44,7 @@ export class Chat extends Component {
 			method: "POST",
 			url: `${ROOT}/messages`,
 			headers: HEADERS,
-			data: this.state.data,
+			data: this.state.data
 		}).catch((err) => console.log(err));
 
 		//Clear the form input post send
@@ -52,8 +52,8 @@ export class Chat extends Component {
 			data: {
 				text: "",
 				user_id: this.props.user.id,
-				chat_id: 1,
-			},
+				chat_id: 1
+			}
 		});
 	}
 
@@ -62,8 +62,8 @@ export class Chat extends Component {
 			data: {
 				text: e.target.value,
 				user_id: this.props.user.id,
-				chat_id: 1,
-			},
+				chat_id: 1
+			}
 		});
 	}
 
@@ -78,7 +78,8 @@ export class Chat extends Component {
 			.delete(LOGOUT, { withCredentials: true })
 			.then(() => {
 				this.props.handleLogout();
-				this.props.history.push("/login");
+				this.props.history.push("/landing");
+				window.location.reload();
 			})
 			.catch((error) => {
 				console.log("logout error", error);

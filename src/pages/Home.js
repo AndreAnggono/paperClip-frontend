@@ -15,7 +15,7 @@ class Home extends Component {
 
 	isLoggedIn() {
 		if (this.state.loggedInStatus === "NOT_LOGGED_IN") {
-			this.props.history.push("/login");
+			this.props.history.push("/landing");
 		}
 	}
 
