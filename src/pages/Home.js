@@ -9,13 +9,14 @@ class Home extends Component {
 		super(props);
 		this.state = {
 			loggedInStatus: props.loggedInStatus,
-			user: {},
+			user: {}
 		};
 	}
 
 	isLoggedIn() {
 		if (this.state.loggedInStatus === "NOT_LOGGED_IN") {
 			this.props.history.push("/landing");
+			window.location.reload();
 		}
 	}
 
